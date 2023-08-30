@@ -20,7 +20,7 @@ from __future__ import print_function
 
 import re
 import tensorflow as tf
-
+tf = tf.compat.v1
 
 def create_optimizer(loss, init_lr, num_train_steps, num_warmup_steps, use_tpu):
   """Creates an optimizer training op."""
@@ -84,7 +84,10 @@ def create_optimizer(loss, init_lr, num_train_steps, num_warmup_steps, use_tpu):
   return train_op
 
 
-class AdamWeightDecayOptimizer(tf.train.Optimizer):
+
+# class AdamWeightDecayOptimizer(tf.train.Optimizer):
+class AdamWeightDecayOptimizer(tf.keras.optimizers.Optimizer):
+
   """A basic Adam optimizer that includes "correct" L2 weight decay."""
 
   def __init__(self,

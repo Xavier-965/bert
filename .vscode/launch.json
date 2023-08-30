@@ -1,0 +1,35 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    //  "../GLUE/glue_data" glue_data数据路径
+    //  "../GLUE/BERT_BASE_DIR/wwm_uncased_L-24_H-1024_A-16"  BERT模型路径
+
+    "version": "0.2.0",
+    "configurations": [
+        {"name":"Python: 当前文件","type":"python","request":"launch","program":"${file}","console":"integratedTerminal","justMyCode":true},
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "args": [
+                "--task_name","MRPC",
+                "--do_train","true",
+                "--do_eval","true",
+                "--data_dir","../GLUE/glue_data/MRPC",
+                "--vocab_file","../GLUE/BERT_BASE_DIR/wwm_uncased_L-24_H-1024_A-16/vocab.txt",
+                "--bert_config_file","../GLUE/BERT_BASE_DIR/wwm_uncased_L-24_H-1024_A-16/bert_config.json",
+                "--init_checkpoint","../GLUE/BERT_BASE_DIR/wwm_uncased_L-24_H-1024_A-16/bert_model.ckpt",
+                "--max_seq_length","128",
+                "--train_batch_size","8",
+                "--learning_rate","2e-5",
+                "--num_train_epochs","3.0",
+                "--output_dir","../GLUE/mrpc_output/",
+                "--m","8G"
+              ],
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+        }
+    ]
+}
